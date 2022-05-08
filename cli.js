@@ -5,7 +5,7 @@ const Hash = require('.')
 
 const cli = meow(`
   Usage
-    # get the cid v1 for the file 
+    # get the cid v1 for the file
     $ ipfs-only-hash <file>
 
     # get the cid v0 for data from stdin
@@ -30,7 +30,7 @@ async function main (cli) {
   }
   const cidVersion = cli.flags.cidVersion
   const rawLeaves = (cidVersion === 1 && cli.flags.rawLeaves === undefined) ? true : cli.flags.rawLeaves;
-  const hash = await Hash.of(stream, { cidVersion, rawLeaves })
+  const hash = await Hash.of(stream, { "cidVersion": cidVersion, "rawLeaves": rawLeaves })
   console.log(hash)
 }
 
